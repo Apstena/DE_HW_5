@@ -6,7 +6,7 @@
 Недостающие значения заполнил самостоятельно:
 
 
-12:27
+
 ```sql
 update adubinsky.ods_issue i
 set start_time = p.pay_date + (random()*6)::smallint * '1 year'::interval + (random()*11)::smallint * '1 month'::interval + (random()*30)::smallint * '1 day'::interval
