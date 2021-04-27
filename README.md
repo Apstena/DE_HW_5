@@ -4,26 +4,19 @@
 Дополнительно: 
 возникла проблема в ДЗ 3 где часть данных была загружена некорретно.
 Недостающие значения заполнил самостоятельно:
-Andrey Dubinskiy  1:25 AM
-Вадим, добрый день.
-Возник вопрос по 5-му заданию Дата Инженер Ростелеком.
-У меня при выполнении 3-го ДЗ были какие-то сбои и есть 2 проблемы:
-не заполнен тип платежного документа в payments
-не заполнены даты начала и дата окончания в issue.
-1:27
-Как лучше поступить в данной ситуации - заполнить их запросом UPDATE случайными значениями чтобы закончить 5-ое ДЗ и не столкнуться с этой проблемной в дальнейшем?
 
-Andrey Dubinskiy  12:26 AM
-Пока чтобы не терять время сделал так:
+
 12:27
-```
+```sql
 update adubinsky.ods_issue i
 set start_time = p.pay_date + (random()*6)::smallint * '1 year'::interval + (random()*11)::smallint * '1 month'::interval + (random()*30)::smallint * '1 day'::interval
 from (select user_id, min(pay_date) pay_date from adubinsky.ods_payment
 group by user_id)p 
 where p.user_id=i.user_id;
+
 update adubinsky.ods_issue i
 set end_time = start_time + (random()*7)::smallint * '1 day'::interval;
+
 update adubinsky.ods_payment
 set pay_doc_type = case when right(account, 1)::int between 0 and 3 then 'VISA'
                     when right(account, 1)::int between 4 and 7 then 'MASTERCARD'
@@ -32,8 +25,6 @@ set pay_doc_type = case when right(account, 1)::int between 0 and 3 then 'VISA'
        end;
 ```
 
-Vadim Opolskiy  12:12 PM
-Андрей, добрый день. Хорошо, чуть позже напишу ОС.
 
 
 
