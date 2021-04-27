@@ -31,7 +31,7 @@ set pay_doc_type = case when right(account, 1)::int between 0 and 3 then 'VISA'
 ### Payment
 #### `user_id`
 Просто проверка на NOT NULL т.к. по таблице платежей в дальнейшем строятся пользователи
-batch.expect_column_values_to_not_be_null(column='user_id')
+```python batch.expect_column_values_to_not_be_null(column='user_id')```
 #### `pay_doc_type`
 Проверка что тип документа входит в определенный набор значений.
 batch.expect_column_distinct_values_to_be_in_set(column='pay_doc_type', value_set=['MAESTRO', 'MASTERCARD', 'MIR', 'VISA', 'AE'])
