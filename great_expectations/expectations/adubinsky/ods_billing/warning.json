@@ -1,0 +1,110 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "adubinsky.ods_billing.warning",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_column_count_to_equal",
+      "kwargs": {
+        "value": 7
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "user_id",
+          "billing_period",
+          "service",
+          "tariff",
+          "sum",
+          "created_at",
+          "src_name"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_kl_divergence_to_be_less_than",
+      "kwargs": {
+        "column": "user_id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "billing_period",
+        "regex": "^(20)(1|2)[0-9]{1}"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_equal",
+      "kwargs": {
+        "column": "service",
+        "value": "14"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "tariff",
+        "value_set": [
+          "Gigabyte",
+          "Maxi",
+          "Mini",
+          "Megabyte"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "sum",
+        "max_value": "10",
+        "min_value": "0"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "created_at",
+        "max_value": "2021-12-31",
+        "min_value": "2013-01-01"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "src_name",
+        "value_set": [
+          "stg_billing"
+        ]
+      },
+      "meta": {}
+    }
+  ],
+  "meta": {
+    "citations": [
+      {
+        "batch_kwargs": {
+          "data_asset_name": "adubinsky.ods_billing",
+          "datasource": "gp",
+          "limit": 1000,
+          "schema": "adubinsky",
+          "table": "ods_billing"
+        },
+        "batch_markers": null,
+        "batch_parameters": null,
+        "citation_date": "20210426T181803.937184Z",
+        "comment": "New suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.13.14"
+  }
+}

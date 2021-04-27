@@ -1,0 +1,176 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "adubinsky.ods_payment.warning",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_column_count_to_equal",
+      "kwargs": {
+        "value": 9
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "user_id",
+          "pay_doc_type",
+          "pay_doc_num",
+          "account",
+          "phone",
+          "billing_period",
+          "pay_date",
+          "sum",
+          "src_name"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "user_id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "pay_doc_type",
+        "value_set": [
+          "MAESTRO",
+          "MASTERCARD",
+          "MIR",
+          "VISA",
+          "AE"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "pay_doc_num"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "account",
+        "regex": "^FL-[0-9]*"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "phone",
+        "regex": "^(\\+7)[\\d]{10}"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "billing_period",
+        "regex": "^(20)(1|2)[0-9]{1}(-)(0?[1-9]|1[0-2])"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "pay_date",
+        "max_value": "2021-12-31",
+        "min_value": "2013-01-01"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "sum",
+        "max_value": "999999999999",
+        "min_value": "0"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "src_name",
+        "value_set": [
+          "stg_payment"
+        ]
+      },
+      "meta": {}
+    }
+  ],
+  "meta": {
+    "BasicSuiteBuilderProfiler": {
+      "batch_kwargs": {
+        "data_asset_name": "adubinsky.ods_payment",
+        "datasource": "gp",
+        "limit": 1000,
+        "schema": "adubinsky",
+        "table": "ods_payment"
+      },
+      "created_at": 1619460006.6321025,
+      "created_by": "BasicSuiteBuilderProfiler"
+    },
+    "citations": [
+      {
+        "batch_kwargs": {
+          "data_asset_name": "adubinsky.ods_payment",
+          "datasource": "gp",
+          "limit": 1000,
+          "schema": "adubinsky",
+          "table": "ods_payment"
+        },
+        "batch_markers": {
+          "ge_load_time": "20210426T175954.134309Z"
+        },
+        "batch_parameters": null,
+        "citation_date": "20210426T180010.259544Z",
+        "comment": "BasicSuiteBuilderProfiler added a citation based on the current batch."
+      }
+    ],
+    "columns": {
+      "account": {
+        "description": ""
+      },
+      "billing_period": {
+        "description": ""
+      },
+      "pay_date": {
+        "description": ""
+      },
+      "pay_doc_num": {
+        "description": ""
+      },
+      "pay_doc_type": {
+        "description": ""
+      },
+      "phone": {
+        "description": ""
+      },
+      "src_name": {
+        "description": ""
+      },
+      "sum": {
+        "description": ""
+      },
+      "user_id": {
+        "description": ""
+      }
+    },
+    "great_expectations_version": "0.13.14",
+    "notes": {
+      "content": [
+        "#### This is an _example_ suite\n\n- This suite was made by quickly glancing at 1000 rows of your data.\n- This is **not a production suite**. It is meant to show examples of expectations.\n- Because this suite was auto-generated using a very basic profiler that does not know your data like you do, many of the expectations may not be meaningful.\n"
+      ],
+      "format": "markdown"
+    }
+  }
+}

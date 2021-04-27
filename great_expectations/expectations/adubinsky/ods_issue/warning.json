@@ -1,0 +1,109 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "adubinsky.ods_issue.warning",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_column_count_to_equal",
+      "kwargs": {
+        "value": 7
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "user_id",
+          "start_time",
+          "end_time",
+          "title",
+          "description",
+          "service",
+          "src_name"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "user_id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "start_time",
+        "max_value": "2021-12-31",
+        "min_value": "2013-01-01"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "end_time",
+        "max_value": "2021-12-31",
+        "min_value": "2013-01-01"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "title",
+        "regex": "^[A-Za-z]+"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "description",
+        "regex": "^[A-Za-z]+"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "service",
+        "value_set": [
+          "Setup Environment",
+          "Connect",
+          "Disconnect"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "src_name",
+        "value_set": [
+          "stg_issue"
+        ]
+      },
+      "meta": {}
+    }
+  ],
+  "meta": {
+    "citations": [
+      {
+        "batch_kwargs": {
+          "data_asset_name": "adubinsky.ods_issue",
+          "datasource": "gp",
+          "limit": 1000,
+          "schema": "adubinsky",
+          "table": "ods_issue"
+        },
+        "batch_markers": null,
+        "batch_parameters": null,
+        "citation_date": "20210426T182300.950296Z",
+        "comment": "New suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.13.14"
+  }
+}
