@@ -16,6 +16,7 @@ Andrey Dubinskiy  1:25 AM
 Andrey Dubinskiy  12:26 AM
 Пока чтобы не терять время сделал так:
 12:27
+```
 update adubinsky.ods_issue i
 set start_time = p.pay_date + (random()*6)::smallint * '1 year'::interval + (random()*11)::smallint * '1 month'::interval + (random()*30)::smallint * '1 day'::interval
 from (select user_id, min(pay_date) pay_date from adubinsky.ods_payment
@@ -29,6 +30,7 @@ set pay_doc_type = case when right(account, 1)::int between 0 and 3 then 'VISA'
                     when right(account, 1)::int between 8 and 8 then 'MIR'
                     when right(account, 1)::int between 9 and 9 then 'MAESTRO'
        end;
+```
 
 Vadim Opolskiy  12:12 PM
 Андрей, добрый день. Хорошо, чуть позже напишу ОС.
