@@ -41,7 +41,9 @@ batch.expect_column_distinct_values_to_be_in_set(column='pay_doc_type', value_se
 ```
 #### `pay_doc_num`
 Выбрана проверка на уникальность т.к. ожидается что у каждого платежного документа будет свой уникальный номер. Найдено 5 дублей по атрибуту.
-```python batch.expect_column_values_to_be_unique(column='pay_doc_num')```
+```python 
+batch.expect_column_values_to_be_unique(column='pay_doc_num')
+```
 #### `account`
 Выбрана проверка на то что лицевой счет должен быть в определенном формате
 ```python 
